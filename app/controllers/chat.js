@@ -15,5 +15,5 @@ module.exports.chat = (app,req,res) => {
 
     app.get('io').emit('msgcliente', {nickname: data.nickname, msg: 'Acabou de entrar' } )
 
-    res.render('chat');
+    res.render('chat', {data: data});
 }
