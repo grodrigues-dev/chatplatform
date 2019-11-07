@@ -127,15 +127,17 @@
 				 nicknameRef: $('#nicknameRef').val()}			
 			);
 			$('#nicknameRef').val(1);
+			$('#msg').val("");
 		});
 
 		socket.on('msgcliente', data => {
 			let html = `<div class="dialogo"> <h4>${data.nickname}</h4> <p>${data.msg}</p></div>`
 			$("#dialogo").append(html);
+			window.scrollTo(0, document.body.scrollHeight);
 		})
 
 		socket.on('participantesCliente', data => {
-			let html = `<span class="participantes">${data.nickname}</span>`
+			let html = `<span class="participante"><img src="images/ico_usuario.png">${data.nickname}</span>`
 			$("#participantes").append(html);
 		})
 
